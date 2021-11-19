@@ -1,0 +1,169 @@
+.user{
+    flex:4;
+    padding:20px;
+}
+
+.userTitleContainer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.userAddButton{
+    width:7rem;
+    padding: 10px;
+    border:none;
+    border-radius:8px;
+    background-color: #4089ff;
+    color:white;
+    cursor:pointer;
+}
+
+.userAddButton:hover{
+    box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -webkit-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -moz-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+}
+
+.userContainer{
+    display:flex;
+    margin-top:20px;
+}
+
+.userDisplay{
+    flex:1;
+    padding:20px;
+    margin-right:20px;
+    box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -webkit-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -moz-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  border-radius:10px;
+}
+.userUpdate{
+    flex:2;
+    padding:20px;
+    box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -webkit-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -moz-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  border-radius:10px;
+}
+
+.userDisplayTop{
+    display:flex;
+    align-items:center;
+
+}
+
+.userDisplayTopImg{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-right:20px;
+}
+
+.userDisplayTopTitle{
+    display:flex;
+    flex-direction:column;
+}
+
+.userDisplayUsername{
+    font-weight:600;
+}
+.userDisplayUserTitle{
+    font-weight:300;
+}
+
+.userDisplayBottom{
+    padding:10px;
+}
+.userDisplayBottomTitle{
+    font-size:14px;
+    font-weight:600;
+    color:gray;
+  
+}
+
+.userDisplayInfoContainer{
+    padding:5px;
+    margin:5px 0px;
+    display:flex;
+    align-items:center;
+    color:#444;
+}
+
+.userDisplayIcon{
+    margin-right:8px;
+}
+
+
+
+.userUpdateForm{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+
+.userUpdateTitle{
+    font-size:24px;
+    font-weight:600;
+}
+
+.userUpdateItem{
+display:flex;
+flex-direction:column;
+margin-top:10px;
+}
+
+.userUpdateItem>label{
+    margin-bottom:5px;
+    font-size: 14px;
+}
+
+.userUpdateInput{
+    width:20rem;
+    height:2rem;
+    border: 1px solid #d4d4d4;
+    border-radius:5px;
+    padding:10px;
+}
+
+.userUpdateImg{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-right:20px;
+}
+
+.userUpdateFormRight{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.userUpdateUpload{
+    display:flex;
+    align-items:center
+}
+
+.userImgFileLabelIcon{
+    cursor:pointer;
+}
+
+.userUpdateSubmitButton{
+    padding:13px 10px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    background-color:#4089ff;
+    color:white;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.userUpdateSubmitButton:hover{
+    box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -webkit-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+  -moz-box-shadow: -1px 2px 8px 1px rgba(190, 190, 190, 0.64);
+}

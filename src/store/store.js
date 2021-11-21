@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import userReducer from './userSlice';
+import productReducer from './productSlice'
 //BOILER PLATE START
 import {
     persistStore,
@@ -25,7 +26,7 @@ import {
   //BOILERPLATE END
 
   //COMBINE TWO REDUCERS INTO ONE USING COMBINE REDUCERS FUNCTION
-  const rootReducer = combineReducers({user:userReducer})
+  const rootReducer = combineReducers({user:userReducer, product: productReducer})
   
   //CREATE A REDUCER OUT OF PRE-EXISTING REDUCER AND THE CONFIG ABOVE, THAT PERSISTS BEYOND RELOADS
   const persistedReducer = persistReducer(persistConfig, rootReducer)

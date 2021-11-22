@@ -4,7 +4,7 @@ import {
   getProductsStart,
   getProductsSuccess,
 } from './productSlice';
-import { loginFailure, loginStart, loginSuccess,logout } from './userSlice';
+import { loginFailure, loginStart, loginSuccess, logout } from './userSlice';
 
 import {
   deleteProductsStart,
@@ -55,7 +55,8 @@ export const updateProduct = async (id, product, dispatch) => {
 
   try {
     //Update
-    dispatch(updateProductsSuccess({ id: id, product: product }));
+    const res = await userRequest.put(`/products/update/${id}`, product);
+    dispatch(updateProductsSuccess({ id: id, product: res.data }));
   } catch (err) {
     dispatch(updateProductsFailure());
   }

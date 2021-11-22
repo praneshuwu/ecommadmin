@@ -31,12 +31,22 @@ const Product = () => {
   const product = useSelector((state) =>
     state.product?.products.find((product) => product._id === productId)
   );
+  let uploadedImgBlob = '';
+  console.log(product);
 
+  const fileChangeHandler = (event) => {
+    setFile(event.target.files[0] );
+  };
+
+  if (file) {
+    uploadedImgBlob = URL.createObjectURL(file);
+  }
   const inputChangeHandler = (event) => {
     setInputs((prev) => {
       return { ...prev, [event.target.name]: event.target.value };
     });
   };
+
   const categoryChangeHandler = (event) => {
     setCategories(event.target.value.split(','));
   };
@@ -44,24 +54,32 @@ const Product = () => {
     setColor(event.target.value.split(','));
   };
 
-  const createButtonHandler = (event) => {
+  const updateButtonHandler = (event) => {
     event.preventDefault();
-    //TODO: UPLOAD FILE AND FIRE APICALL
-    const fileName = new Date().getTime() + file.name;
+
+    if (!inputs) {
+      setInputs({
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        inStock: product.inStock,
+      });
+    }
+
+    if (!categories) {
+      setCategories(product.categories);
+    }
+
+    if (!color) {
+      setColor(product.color);
+    }
+    const fileName = new Date().getTime() + file?.name;
     const storage = getStorage(app);
     const storageRef = ref(storage, fileName);
-
     const uploadTask = uploadBytesResumable(storageRef, file);
-
-    // Register three observers:
-    // 1. 'state_changed' observer, called any time the state changes
-    // 2. Error observer, called on failure
-    // 3. Completion observer, called on successful completion
     uploadTask.on(
       'state_changed',
       (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setProgressBar(progress);
@@ -121,9 +139,6 @@ const Product = () => {
     getStats();
   }, [MONTHS, productId]);
 
-  const newImage = new Image();
-  newImage.src = file;
-
   return (
     <div className='product'>
       <div className='productTitleContainer'>
@@ -176,30 +191,35 @@ const Product = () => {
             <label>Updated Product Name</label>
             <input
               type='text'
+              name='title'
               placeholder='Enter New Product Name'
               onChange={inputChangeHandler}
             />
             <label>Updated Product Description</label>
             <input
               type='text'
+              name='description'
               placeholder='Enter New Product Description'
               onChange={inputChangeHandler}
             />
             <label>Updated Product Categories</label>
             <input
               type='text'
+              name='categories'
               placeholder='Enter Updated Product Categories (Separated with commas)'
               onChange={categoryChangeHandler}
             />
             <label>Updated Product Colors</label>
             <input
               type='text'
+              name='color'
               placeholder='Enter Updated Product Colors (Separated with commas)'
               onChange={colorChangeHandler}
             />
             <label>Updated Product Price</label>
             <input
               type='text'
+              name='price'
               placeholder='Enter New Product Price'
               onChange={inputChangeHandler}
             />
@@ -213,29 +233,35 @@ const Product = () => {
           <div className='productFormRight'>
             <div className='productUpload'>
               <img
-                src={file ? newImage : product.img}
+                src={uploadedImgBlob ? uploadedImgBlob : product.img}
                 alt='Product Upload'
                 className='productUploadImg'
               />
-              {console.log(file)}
+
               <label htmlFor='img' name='img'>
                 <PublishTwoTone className='productImgUploadIcon' />
               </label>
-              
+
               <input
                 type='file'
                 name='img'
                 id='img'
                 style={{ display: 'none' }}
-                onChange={(event) => setFile(event.target?.files[0])}
+                onChange={fileChangeHandler}
               />
+
               <span className='formLabel'>
-              {progressBarError
-            ? progressBarError
-            : progressBar && `Uploading: ${progressBar}% completed`}
+                {progressBarError
+                  ? progressBarError
+                  : progressBar && `Uploading: ${progressBar}% completed`}
               </span>
             </div>
-            <button className='productUpdateButton' onClick={createButtonHandler}>UPDATE</button>
+            <button
+              className='productUpdateButton'
+              onClick={updateButtonHandler}
+            >
+              UPDATE
+            </button>
           </div>
         </form>
       </div>

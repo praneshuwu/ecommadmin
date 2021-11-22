@@ -24,6 +24,11 @@ const NewProduct = () => {
   const [progressBarError, setProgressBarError] = useState(null);
   const dispatch = useDispatch();
 
+  const fileChangeHandler = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+
   const inputChangeHandler = (event) => {
     setInputs((prev) => {
       return { ...prev, [event.target.name]: event.target.value };
@@ -77,7 +82,7 @@ const NewProduct = () => {
           name='img'
           id='img'
           style={{ border: 'none' }}
-          onChange={(event) => setFile(event.target?.files[0])}
+          onChange={fileChangeHandler}
         />
         <span className='formLabel'>
           {progressBarError

@@ -1,3 +1,4 @@
+import React from 'react'
 import './newuser.css';
 
 const NewUser = () => {

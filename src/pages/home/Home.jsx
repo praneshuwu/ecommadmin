@@ -1,3 +1,4 @@
+import React from 'react'
 import Chart from '../../components/chart/Chart';
 import FeaturedInfo from '../../components/featuredinfo/FeaturedInfo';
 import './home.css';
@@ -31,7 +32,8 @@ const Home = () => {
     const getStats = async () => {
       try {
         const res = await userRequest.get('/user/stats');
-        res.data.map((item) =>
+        const list =res.data.sort((a,b)=> a._id - b._id)
+        list.map((item) =>
            setUserStats((prev) => [
             ...prev,
             { name: MONTHS[item._id-1], 'Active Users': item.total },

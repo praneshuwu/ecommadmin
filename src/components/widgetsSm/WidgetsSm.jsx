@@ -1,3 +1,4 @@
+import React from 'react'
 import './widgetssm.css';
 import Avatar from '../../assets/avatar.png';
 import { VisibilityTwoTone } from '@material-ui/icons';

@@ -1,7 +1,8 @@
+import React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutlineTwoTone } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './productlist.css';
 import { deleteProduct, getProducts } from '../../store/apiCalls';

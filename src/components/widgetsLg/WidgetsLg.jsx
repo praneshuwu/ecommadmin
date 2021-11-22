@@ -1,8 +1,10 @@
 import './widgetslg.css';
-import Avatar from '../../assets/avatar.png';
 import { useEffect, useState } from 'react';
 import { userRequest } from '../../requestMethods';
+import React from 'react'
 import {format} from 'timeago.js'
+
+
 const WidgetsLg = () => {
   const [orders, setOrders] = useState([]);
 

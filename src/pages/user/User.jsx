@@ -1,3 +1,4 @@
+
 import './user.css';
 import Avatar from '../../assets/avatar.png';
 import {
@@ -9,6 +10,7 @@ import {
   Publish,
 } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import React from 'react'
 
 const User = () => {
   return (
